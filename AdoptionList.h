@@ -9,7 +9,7 @@ private:
     int current;
 public:
     AdoptionList();
-    ~AdoptionList();
+    // ~AdoptionList();
 
     void add(const Cat& c);
 

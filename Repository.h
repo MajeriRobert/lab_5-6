@@ -50,7 +50,7 @@ public:
 
     void nextCat();
 
-    bool isEmpty();
+    int isEmpty();
 
     int getPos();
 };

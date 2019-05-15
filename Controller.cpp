@@ -24,6 +24,11 @@ void Controller::adopt(const Cat& cat){
 
 }
 
-void Controller::startShow(){
-    this->adoptlist.getCurrentCat();
+void Controller::nextCat(){
+    this->repo.nextCat();
+}
+
+Cat Controller::getCurrentCtrl(){
+    return this->repo.getCurrent();
+
 }

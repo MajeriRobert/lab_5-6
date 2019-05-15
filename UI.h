@@ -21,5 +21,11 @@ private:
     void updateCatUI();
     void adopt();
 
+    void getOne();
+
+    void nextCatUI();
+
+    void getCurrentCat();
+
 
 };

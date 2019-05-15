@@ -25,4 +25,6 @@ public:
     void setName(string newName){ this->name = newName; }
     void setAge(double newAge){ this->age = newAge; }
     void setPhoto(string newPhoto){ this->photo = newPhoto; }
+
+    string toString();
 };

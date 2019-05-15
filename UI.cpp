@@ -23,7 +23,8 @@ void UI::printAdminMenu(){
 
 void UI::printUserMenu(){
     cout << endl;
-    cout << "Path not yet implemented" << endl;
+    cout << "1.Show cats." << endl;
+    cout << "2.Next cat." <<endl;
 }
 
 void UI::addCatUI(){
@@ -111,6 +112,28 @@ void UI::showAll(){
     }
 }
 
+void UI::getOne(){
+    DynamicVector<Cat> cats = ctrl.getRepo().getCats();
+    int i;
+    for(i=0; i < cats.getSize(); i++){
+        string str;
+        str = cats[i].toString();
+        cout << str << endl;
+    }
+
+}
+
+void UI::nextCatUI(){
+    this->ctrl.nextCat();
+}
+
+void UI::getCurrentCat(){
+    Cat cat = this->ctrl.getCurrentCtrl();
+    string str;
+    str = cat.toString();
+    cout << str << endl;
+}
+
 void UI::run(){
     while (true){
         UI:printMenu();
@@ -151,7 +174,27 @@ void UI::run(){
             }
         }
         if(choice == 2){
-            cout << "I didn't program this far." << endl;
+            while(true){
+                UI::printUserMenu();
+                int userChoice{0};
+                cout << endl;
+                cout << "Enter your choice: ";
+                cin >> userChoice;
+                cin.ignore();
+                if(userChoice == 0)
+                    break;
+                switch(userChoice){
+                    case 1:
+                        this->getCurrentCat();
+                        cout << endl;
+                        break;
+                    case 2:
+                        this->nextCatUI();
+                        this->getCurrentCat();
+
+                        cout << endl;
+                }
+            }
         }
     }
 }

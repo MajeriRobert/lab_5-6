@@ -42,8 +42,14 @@ int Repository::isEmpty(){
     return 1;
 }
 
+Cat Repository::getCurrent(){
+    if (this->current == this->cats.getSize())
+        this->current = 0;
+    return this->cats[this->current];
+
+}
+
 void Repository::nextCat(){
-    if (this->isEmpty() != 0)
-        this->cu
+        this->current++;
 
 }

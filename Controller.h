@@ -14,7 +14,7 @@ private:
 public:
     Controller(const Repository& repo): repo(repo) {}
 
-    // ~Controller();
+     // ~Controller();
 
     Repository getRepo()const { return this->repo; }
 
@@ -30,5 +30,7 @@ public:
 
     void adopt(const Cat& cat);
 
-    void startShow();
+    void nextCat();
+
+    Cat getCurrentCtrl();
 };
