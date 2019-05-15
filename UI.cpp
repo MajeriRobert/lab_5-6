@@ -25,6 +25,9 @@ void UI::printUserMenu(){
     cout << endl;
     cout << "1.Show cats." << endl;
     cout << "2.Next cat." <<endl;
+    cout << "3.Adopt cat." << endl;
+    cout << "4.Show adoption list." << endl;
+    cout << "5.Show by breed." << endl;
 }
 
 void UI::addCatUI(){
@@ -46,6 +49,12 @@ void UI::addCatUI(){
     cin >> photo;
 
     this->ctrl.addCat(breed, name, age, photo);
+}
+
+void UI::adopt(){
+    Cat cat = this->ctrl.getCurrentCtrl();
+    this->ctrl.adopt(cat);
+
 }
 
 void UI::removeCatUI(){
@@ -110,6 +119,45 @@ void UI::showAll(){
         cout << "Photograph link: " <<c.getPhoto() << endl;
 
     }
+}
+
+void UI::showAdopted(){
+    DynamicVector<Cat> list = this->ctrl.getAdoptionlist().getAdoptedCats();
+    Cat* cat = list.getElems();
+
+    if(list.getSize() == 0){
+        cout << "There is no cat here." << endl;
+        return;
+    }
+    cout << endl;
+    cout << "These are the adopted cats: "<< endl;
+    for(int i = 0; i < list.getSize(); i++){
+        Cat c = list[i];
+        cout << endl ;
+        cout<< "Breed: " <<c.getBreed() <<endl;
+        cout << "Name: " <<c.getName() <<endl;
+        cout << "Age: " << c.getAge() <<endl;
+        cout << "Photograph link: " <<c.getPhoto() << endl;
+    }
+
+}
+
+void UI::showByBreed(){
+    string breed;
+    cout << "Enter breed: " << endl;
+    getline(cin, breed);
+    double age;
+    cout << "Enter age: " << endl;
+    cin >> age;
+
+    DynamicVector<Cat> cats = this->ctrl.getByBreed(breed, age);
+    for(int i = 0; i < cats.getSize(); i++){
+        string str;
+        str = cats[i].toString();
+        cout << str << endl;
+    }
+
+
 }
 
 void UI::getOne(){
@@ -191,8 +239,23 @@ void UI::run(){
                     case 2:
                         this->nextCatUI();
                         this->getCurrentCat();
-
                         cout << endl;
+                        break;
+                    case 3:
+                        this->adopt();
+                        cout << "Cat added to the adoption list" << endl;
+                        cout<<endl;
+                        break;
+                    case 4:
+                        this->showAdopted();
+                        cout << endl;
+                        break;
+
+                    case 5:
+                        this->showByBreed();
+                        cout <<  endl;
+                        break;
+
                 }
             }
         }

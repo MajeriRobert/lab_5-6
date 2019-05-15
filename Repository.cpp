@@ -53,3 +53,10 @@ void Repository::nextCat(){
         this->current++;
 
 }
+
+/*Cat Repository::currentBreed(const string breed, const double age){
+    if (this->current == this->cats.getSize())
+        this->current = 0;
+    if(this->cats[i].getBreed() == breed && this->cats[i].getAge() <= age)
+
+}*/

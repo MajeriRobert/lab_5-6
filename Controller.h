@@ -33,4 +33,6 @@ public:
     void nextCat();
 
     Cat getCurrentCtrl();
+
+    DynamicVector<Cat> getByBreed(const string breed, const double age);
 };

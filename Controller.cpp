@@ -30,5 +30,14 @@ void Controller::nextCat(){
 
 Cat Controller::getCurrentCtrl(){
     return this->repo.getCurrent();
+}
 
+DynamicVector<Cat> Controller::getByBreed(const string breed,const double age){
+    DynamicVector<Cat> list;
+    int i;
+    for(i = 0; i < this->getRepo().getCats().getSize(); i++){
+        if(this->getRepo().getCats()[i].getBreed() == breed && this->getRepo().getCats()[i].getAge() <= age)
+            list.add(this->getRepo().getCats()[i]);
+    }
+    return list;
 }

@@ -19,4 +19,5 @@ public:
 
     bool isEmpty();
 
+    DynamicVector<Cat> getAdoptedCats() const{ return this->cats; }
 };

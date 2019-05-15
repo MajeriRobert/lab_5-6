@@ -46,11 +46,16 @@ public:
     Out:-
     */
     int update(const string& name, const Cat& cat);
+
     DynamicVector<Cat> getCats() const{ return this->cats; }
+
+    // DynamicVector<Cat> getByBreed(const string breed);
 
     void nextCat();
 
     int isEmpty();
 
     int getPos();
+
+    // Cat currentBreed(const string breed, const double age);
 };

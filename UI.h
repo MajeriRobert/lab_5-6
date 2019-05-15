@@ -27,5 +27,11 @@ private:
 
     void getCurrentCat();
 
+    void showAdopted();
+
+    void showByBreed();
+
+    void firstBreed();
+
 
 };
